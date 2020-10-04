@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CDC 2020 Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>CDC 2020 Project</strong> by Wei Zhou</a>
+								</header>
+
+							<!-- Banner -->
+								<section>
+									<header class="main">
+										<h1>Data Visualization</h1>
+									</header>
+
+									<!-- Content -->
+                                    <h2 id="content">Analysis</h2>
+                                    <p style="font-size: 15pt">Generally speaking, for each individual location, the amounts of air pollutants have increasing trends over time. This doesn't necessarily mean that the number of fires increased, since those pollutants can be cumulated over time. 
+                                    </p>
+                                    <p style="font-size: 15pt">Across San Francisco, locations to the east were more polluted than those places closer to the sea. This matches the map of fires -- inland cities had more fires than coast cities. Another possible reason could be that some of the pollutants (nitrogen dioxide and trioxygen, for instance) can resolve in water. 
+                                    </p>
+                                    
+                                    <hr class="major" />
+                                    
+                                    <h2 id="content">Tableau</h2>
+                                    <p style="font-size: 15pt">I picked four pollutants from the dataset to visualize. Using Tableau, I am able to present how these four pollutants change in amounts over the past three months. 
+                                    </p>
+                                    
+                                    <head>
+                                    <script type="text/javascript"
+	                                   src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+                                    <script type="text/javascript">
+                                        function initViz() {
+                                            var containerDiv = document.getElementById("vizContainer"),
+                                                url = "http://public.tableau.com/views/AirQuality_16018062251120/AirPollutants",
+                                                options = {
+                                                    hideTabs: true,
+                                                    onFirstInteractive: function () {
+                                                        console.log("Run this code when the viz has finished loading.");
+                                                    }
+                                                };
+
+                                            var viz = new tableau.Viz(containerDiv, url, options);
+                                            // Create a viz object and embed it in the container div.
+                                        }
+                                    </script>
+                                    </head>
+
+                                    <body onload="initViz();">
+                                        <div id="vizContainer" style="width:800px; height:700px;"></div>
+                                    </body>
+                                    
+                                    
+                                    
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="overview.html">Overview</a></li>
+										<li><a href="dv.html">Data Visualization</a></li>
+										<li><a href="predictions.html">Predictions</a></li>
+										<li><a href="conclusion.html">Conclusion</a></li>
+									</ul>
+								</nav>
+                            
+							<!-- Section -->
+                            <section>
+									<header class="major">
+										<h2>Send A Comment</h2>
+									</header>
+									<form action="mailto:weizhou@email.unc.edu" method="post" enctype="text/plain">
+                                        Name:<br>
+                                        <input type="text" name="name"><br>
+                                        Contact Info:<br>
+                                        <input type="text" name="mail"><br>
+                                        Comment:<br>
+                                        <input type="text" name="comment" size="50"><br><br>
+                                        <input type="submit" value="Send">
+                                        <input type="reset" value="Reset">
+                                    </form>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

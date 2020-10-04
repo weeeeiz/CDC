@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CDC 2020 Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>CDC 2020 Project</strong> by Wei Zhou</a>
+								</header>
+
+							<!-- Banner -->
+								<section>
+									<header class="main">
+										<h1>Predictions</h1>
+									</header>
+
+									<!-- Content -->
+										<h2 id="content">ARIMA Model</h2>
+                                    <p style="font-size: 15pt">Due to the limit of time, I focused on data of ozone in one single location, San Francisco (latitude: 37.7658, longitude: -122.3978). Data for other pollutants and locations can be analyzed in similar ways. My first step was to select data with parameter = "o3" and location = "San Francisco." I deleted the first ten lines so that the data starts at 07/04 00:00.
+                                    </p>
+                                    <p style="font-size: 15pt">Then I changed the data into time-series data using the ts() function, and named it o3sf_ts. By making the acf plot of o3sf_ts, I understood that the data is non-stationary.
+                                    </p>
+                                    <span class="image fit"><img src="images/Acf_0.png" alt="" /></span>
+                                    <p style="font-size: 15pt">This implied that I need to take differences until the data is stationary. After first-order differening, the data becomes stationary.
+                                    </p>
+                                    <span class="image fit"><img src="images/Acf_1.png" alt="" /></span>
+                                    <p style="font-size: 15pt">From here I could start modeling. I chose the ARIMA model. I tried several orders and decided that Arima(2, 1, 0) is the most accurate. The box-test 
+                                    results and qq-plot of the model residuals are presented below. The test returned a p-value equals to 0.9885 and for the qq-plot, most of the points lie on the line. Thus, the residual is not autocorrelated and is normally distributed. 
+                                    </p>
+                                    <span class="image fit"><img src="images/box_test.png" alt="" /></span>
+                                    <span class="image fit"><img src="images/qq_p.png" alt="" /></span>
+                                    <p style="font-size: 15pt">The model is ready for forecasting! I used forecast() function in R to forecast 24 values. The plot of the forecasted value is demonstrated below. 
+                                    </p>
+                                    <span class="image fit"><img src="images/fore.png" alt="" /></span>
+                                    <p style="font-size: 15pt">If I have more data, the forecasted value will be more accurate.
+                                    </p>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="overview.html">Overview</a></li>
+										<li><a href="dv.html">Data Visualization</a></li>
+										<li><a href="predictions.html">Predictions</a></li>
+										<li><a href="conclusion.html">Conclusion</a></li>
+									</ul>
+								</nav>
+                            
+							<!-- Section -->
+                            <section>
+									<header class="major">
+										<h2>Send A Comment</h2>
+									</header>
+									<form action="mailto:weizhou@email.unc.edu" method="post" enctype="text/plain">
+                                        Name:<br>
+                                        <input type="text" name="name"><br>
+                                        Contact Info:<br>
+                                        <input type="text" name="mail"><br>
+                                        Comment:<br>
+                                        <input type="text" name="comment" size="50"><br><br>
+                                        <input type="submit" value="Send">
+                                        <input type="reset" value="Reset">
+                                    </form>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
